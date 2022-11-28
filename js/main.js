@@ -1,9 +1,10 @@
 let turno = prompt ("Le gustaria generar un turno? si o no");
 let cierre = 0;
+let nTurno;
 
 if (turno=="si") {
 
-    Nturno = parseInt(prompt ("cuantos turnos le gustaria generar?"))
+    nTurno = parseInt(prompt ("cuantos turnos le gustaria generar?"))
 
     do {
         let Nombre = prompt ("Ingrese el nombre del turno");
@@ -52,7 +53,7 @@ if (turno=="si") {
 
             cierre++;
 
-    } while (Nturno == cierre);
+    } while (nTurno != cierre);
 
 } else {
     alert ("gracias no se guardo ningun turno!")
