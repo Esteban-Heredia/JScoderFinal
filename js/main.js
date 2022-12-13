@@ -1,55 +1,38 @@
 let turno = prompt ("Le gustaria generar un turno? si o no");
 let cierre = 0;
 let nTurno;
+let vueltas = 0;
+
+const nuevoTurnoDato = [];
+const diaHorario = [];
+
 
 if (turno=="si") {
 
     nTurno = parseInt(prompt ("cuantos turnos le gustaria generar?"))
 
     do {
-        let Nombre = prompt ("Ingrese el nombre del turno");
-        let Apellido = prompt ("Ingrese el apellido");
-        let edad = parseInt(prompt("Ingrese su edad"));
-        let dia = prompt ("Ingrese el dia que le gustaria lunes  martes  miercoles  jueves  viernes ninguno");
-        let horario = prompt ("En que horario le gustaria el turno: mañana tarde noche");
-    
-        switch (dia) {
-                case "lunes":
-                   mostrar ("usted selecciono el dia " + dia)
-                    break;
-                case "martes":
-                    mostrar ("usted selecciono el dia " + dia)
-                 break;
-                case "miercoles":
-                    mostrar ("usted selecciono el dia " + dia)
-                 break;
-                case "jueves":
-                   mostrar ("usted selecciono el dia " + dia)
-                    break;
-                case "viernes":
-                    mostrar ("usted selecciono el dia " + dia)
-                    break;
-                default:
-                    alert ("No se pudo generar correctamente el dia del turno, desde ya muchas gracias!")
-                    break;
-        };
+
+        nuevoTurnoDato.push({nombre: prompt("Ingrese el nombre del turno")});
+        nuevoTurnoDato.push({apellido: prompt("Ingrese el apellido")});
+        nuevoTurnoDato.push({edad: prompt("ingresa su edad")});
+
         
-        switch (horario) {
-                case "mañana":
-                    mostrar ("Usted selecciono el horario " + horario)
-                    break;
-                case "terde":
-                    mostrar ("Usted selecciono el horario " + horario)
-                    break;
-                case "noche":
-                    mostrar ("Usted selecciono el horario " + horario)
-                    break;
-                default:
-                    alert ("No se pudo generar correctamente el dia del turno, desde ya muchas gracias!")
-                    break;
-            }
+        diaHorario.push({dia: prompt("Ingrese el dia que le gustaria lunes  martes  miercoles  jueves  viernes ninguno")});
+        diaHorario.push({hora: prompt("En que horario le gustaria el turno: mañana tarde noche")});
         
-            mostrar ("El turno se guardo para " + Nombre + " " + Apellido + ".Su edad es de " + edad);
+        console.log(nuevoTurnoDato);
+        console.log(diaHorario);
+
+        const nomb = nuevoTurnoDato[0];
+        const apell = nuevoTurnoDato[1];
+        const anio = nuevoTurnoDato[2];
+
+        const dia = diaHorario[0];
+        const horario = diaHorario[1];
+
+            mostrar ("El turno se guardo para " + nomb.nombre + " " + "Con apellido " + apell.apellido + " Y su edad es " + anio.edad + ". El turno quedo registrado para el dia " + dia.dia + " en el horario de " + horario.hora + " Muchas gracias!");
+
 
             cierre++;
 
