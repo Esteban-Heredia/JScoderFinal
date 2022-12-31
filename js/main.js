@@ -6,32 +6,39 @@ const edad= document.getElementById("edad");
 const dia = document.getElementById("dia");
 const hora = document.getElementById("hora");
 const turnoCompleto = document.getElementById("turno-completo");
-
+const turnoGenerado = document.getElementById("turnoGenerado");
 
 
 //captura de datos
 nombre.addEventListener("input", ()=>{
+    CargaDeDatos
 })
 
 apellido.addEventListener("input",()=> {
+    CargaDeDatos
 })
 
 edad.addEventListener("input", () => {
+    CargaDeDatos
 })
 
 dia.addEventListener("input", () => {
+    CargaDeDatos
 })
 
 hora.addEventListener("input", () => {
+    CargaDeDatos
 })
 
 turnoCompleto.addEventListener("", () => {
+    CargaDeDatos
 })
 
-//Boton submit
+//Boton para generar 
 
-turnoCompleto.addEventListener("submit", () => {
-   console.log("algo")
+turnoGenerado.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    turnoCompleto.innerHTML = `<div><p> El turno esta a nombre de ${nombre}</p></div>`
 });
 
 
@@ -51,6 +58,9 @@ function CargaDeDatos (nombre,apellido,edad,dia,hora){
 }
 
 
+const personaturno = new CargaDeDatos ( nombre , apellido, edad, dia, hora);
+
+turnos.push(personaturno);
 
 // let cantidadTurnos;
 // let cierre = 0 ;
@@ -98,9 +108,6 @@ function CargaDeDatos (nombre,apellido,edad,dia,hora){
 //         let dia = prompt ("¿Que dia te gustaria el turno?");
 //         let hora = prompt ("¿Que horario te gustaria?");
     
-//         const personaturno = new CargaDeDatos ( nombre , apellido, edad, dia, hora);
-    
-//         turnos.push(personaturno);
         
 
 
