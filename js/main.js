@@ -7,6 +7,27 @@ const dia = document.getElementById("dia");
 const hora = document.getElementById("hora");
 const turnoCompleto = document.getElementById("turno-completo");
 
+
+
+//captura de datos
+nombre.addEventListener("input", ()=>{
+})
+
+apellido.addEventListener("input",()=> {
+})
+
+edad.addEventListener("input", () => {
+})
+
+dia.addEventListener("input", () => {
+})
+
+hora.addEventListener("input", () => {
+})
+
+turnoCompleto.addEventListener("", () => {
+})
+
 //Boton submit
 
 turnoCompleto.addEventListener("submit", () => {
