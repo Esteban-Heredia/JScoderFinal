@@ -11,34 +11,28 @@ const turnoGenerado = document.getElementById("turnoGenerado");
 
 //captura de datos
 nombre.addEventListener("input", ()=>{
-    CargaDeDatos
 })
 
 apellido.addEventListener("input",()=> {
-    CargaDeDatos
 })
 
 edad.addEventListener("input", () => {
-    CargaDeDatos
 })
 
 dia.addEventListener("input", () => {
-    CargaDeDatos
 })
 
 hora.addEventListener("input", () => {
-    CargaDeDatos
 })
 
 turnoCompleto.addEventListener("", () => {
-    CargaDeDatos
 })
 
 //Boton para generar 
 
-turnoGenerado.addEventListener("submit", (e)=>{
+turnoCompleto.addEventListener("submit", (e)=>{
     e.preventDefault();
-    turnoCompleto.innerHTML = `<div><p> El turno esta a nombre de ${nombre}</p></div>`
+    turnoGenerado.innerHTML = `<div><p> Gracias el turno se genero correctamente ${nombre.value} !!!</p></div>`
 });
 
 
