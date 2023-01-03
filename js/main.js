@@ -1,89 +1,117 @@
-//Datos base
+// //Datos base
 
-const nombre = document.getElementById("nombre");
-const apellido = document.getElementById("apellido");
-const edad= document.getElementById("edad");
-const dia = document.getElementById("dia");
-const hora = document.getElementById("hora");
-const turnoCompleto = document.getElementById("turno-completo");
-const turnoGenerado = document.getElementById("turnoGenerado");
+const nombre = document.getElementById("nombre").value;
+// const apellido = document.getElementById("apellido");
+// const edad = document.getElementById("edad");
+// const dia = document.getElementById("dia");
+// const hora = document.getElementById("hora");
+
+let turnoCompleto = document.getElementById("turno-completo");
+let turnoGenerado = document.getElementById("turnoGenerado");
 
 
 //captura de datos
-nombre.addEventListener("input", ()=>{
-})
+// nombre.addEventListener("input", ()=>{
+// })
 
-apellido.addEventListener("input",()=> {
-})
+// apellido.addEventListener("input",()=> {
+// })
+    
+// edad.addEventListener("input", () => {
+// })
+        
+// dia.addEventListener("input", () => {
+// })
+            
+// hora.addEventListener("input", () => {
+// })
 
-edad.addEventListener("input", () => {
-})
+    
+//     //Boton para generar 
+    
+// const turnoInfo = turnoCompleto.addEventListener("submit", (e)=>{
+//     e.preventDefault();
+//     turnoGenerado.innerHTML = `<div><p> Gracias el turno se genero correctamente ${nombre.value} !!!</p></div>`
+// });
 
-dia.addEventListener("input", () => {
-})
-
-hora.addEventListener("input", () => {
-})
-
-turnoCompleto.addEventListener("", () => {
-})
-
-//Boton para generar 
-
-turnoCompleto.addEventListener("submit", (e)=>{
+const turnoInfo = turnoCompleto.addEventListener("submit", (e)=>{
     e.preventDefault();
     turnoGenerado.innerHTML = `<div><p> Gracias el turno se genero correctamente ${nombre.value} !!!</p></div>`
 });
 
+function capturar(){
+
+    // funcion para armar el obj
+
+    function Turno(nombre,apellido,edad,dia,hora){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.dia = dia;
+        this.hora = hora;
+    }
+
+    
+    // Datos de los input
+    
+    let nombreObj = document.getElementById("nombre").value;
+    let apellidoObj = document.getElementById("apellido").value;
+    let edadObj = document.getElementById("edad").value;
+
+    // NOSE COMO HACER PARA QUE ME TOME EL VALOR DEL DIA ME APARECE SOLO EL DIA NO EL MES NI AÑO.. (SE QUE DEBE SER UNA TONTERA PERO ESTOY HACE DIAS CON ESO JAJAJ)
+    
+    let diaObj = document.getElementById("edad").value;
+    let horaObj = document.getElementById("hora").value;
+    
+    // copia de los datos capturados
+    
+    turnoObj = new Turno(nombreObj,apellidoObj,edadObj,diaObj,horaObj);
+    console.log(turnoObj)
+    
+    cargaTurno ();
+
+}
+
+// Donde se alojaran todos los turnos creados
+
+const turnosGral = [];
+
+ function cargaTurno(){
+   turnosGral.push(turnoObj);
+   console.log(turnosGral);
+
+ }
 
 
-const turnos = [];
+// function CargaDeDatos (nombre,apellido,edad,dia,hora){
 
-console.log(turnos)
+//     let nombre = document.getElementById("nombre").value;
+
+//     this.nombre = nombre.value;
+//     this.apellido = apellido.value;
+//     this.edad = edad.value;
+//     this.dia = dia.value;
+//     this.hora = hora.value;
+    
+//     const personaturno = new CargaDeDatos ( nombre , apellido, edad, dia, hora);
+//     turnos.push(personaturno);
+// }
+
+
+
+//     let nombreDatos = document.getElementById("nombre").value;
+
+//     let turno = CargaDeDatos(nombreDatos);
+
+//     console.log(turno)
+// }
+
+
 
 // carga los datos al array
 
-function CargaDeDatos (nombre,apellido,edad,dia,hora){
-    this.nombre = nombre;
-    this.apellido = apellido;
-    this.edad = edad;
-    this.dia = dia;
-    this.hora = hora;
-}
 
-
-const personaturno = new CargaDeDatos ( nombre , apellido, edad, dia, hora);
-
-turnos.push(personaturno);
-
-// let cantidadTurnos;
-// let cierre = 0 ;
-
-
-// let preguntaBase;
-
-// const botonsi = document.getElementById("btnSI");
-// const botonno = document.getElementById("btnNO");
-
-// botonsi.onclick = ()=>{
-//     preguntaBase != true;
-// }
-
-// botonno.onclick = ()=>{
-//     preguntaBase = false;
-// } 
-
-
-// if (preguntaBase == botonsi) {
-
-//     console.log("bien ahi!!")
-    
-// } else if (preguntaBase == botonno) {
-
-//     console.log("a tu mama!")
-
-// }
-
+// console.log(CargaDeDatos)
 
 
 
