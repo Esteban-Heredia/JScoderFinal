@@ -81,7 +81,12 @@ const turnosGral = [];
    console.log(turnosGral);
 
    turnoGenerado.innerHTML += `<div><p> Gracias el turno se genero correctamente ${turnoObj.nombre} !!!</p></div>`
+   
+   
+   const turnosJson = JSON.stringify(turnosGral)
+   localStorage.setItem("turnosGral", turnosJson)
  }
+
 
 
 // function CargaDeDatos (nombre,apellido,edad,dia,hora){
