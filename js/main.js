@@ -1,6 +1,6 @@
 // //Datos base
 
-const nombre = document.getElementById("nombre").value;
+// const nombre = document.getElementById("nombre").value;
 // const apellido = document.getElementById("apellido");
 // const edad = document.getElementById("edad");
 // const dia = document.getElementById("dia");
@@ -34,10 +34,10 @@ let turnoGenerado = document.getElementById("turnoGenerado");
 //     turnoGenerado.innerHTML = `<div><p> Gracias el turno se genero correctamente ${nombre.value} !!!</p></div>`
 // });
 
-const turnoInfo = turnoCompleto.addEventListener("submit", (e)=>{
-    e.preventDefault();
-    turnoGenerado.innerHTML = `<div><p> Gracias el turno se genero correctamente ${nombre.value} !!!</p></div>`
-});
+// const turnoInfo = turnoCompleto.addEventListener("submit", (e)=>{
+//     e.preventDefault();
+//     turnoGenerado.innerHTML = `<div><p> Gracias el turno se genero correctamente ${nombre.value} !!!</p></div>`
+// });
 
 function capturar(){
 
@@ -80,6 +80,7 @@ const turnosGral = [];
    turnosGral.push(turnoObj);
    console.log(turnosGral);
 
+   turnoGenerado.innerHTML += `<div><p> Gracias el turno se genero correctamente ${turnoObj.nombre} !!!</p></div>`
  }
 
 
