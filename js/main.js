@@ -1,43 +1,22 @@
-// //Datos base
-
-// const nombre = document.getElementById("nombre").value;
-// const apellido = document.getElementById("apellido");
-// const edad = document.getElementById("edad");
-// const dia = document.getElementById("dia");
-// const hora = document.getElementById("hora");
+// Datos base generales
 
 let turnoCompleto = document.getElementById("turno-completo");
 let turnoGenerado = document.getElementById("turnoGenerado");
+let tablaContainer = document.getElementById('tabla');
 
 
-//captura de datos
-// nombre.addEventListener("input", ()=>{
-// })
+// Donde se alojaran todos los turnos creados
 
-// apellido.addEventListener("input",()=> {
-// })
-    
-// edad.addEventListener("input", () => {
-// })
-        
-// dia.addEventListener("input", () => {
-// })
-            
-// hora.addEventListener("input", () => {
-// })
+const turnosGral = [];
 
-    
-//     //Boton para generar 
-    
-// const turnoInfo = turnoCompleto.addEventListener("submit", (e)=>{
-//     e.preventDefault();
-//     turnoGenerado.innerHTML = `<div><p> Gracias el turno se genero correctamente ${nombre.value} !!!</p></div>`
-// });
 
-// const turnoInfo = turnoCompleto.addEventListener("submit", (e)=>{
-//     e.preventDefault();
-//     turnoGenerado.innerHTML = `<div><p> Gracias el turno se genero correctamente ${nombre.value} !!!</p></div>`
-// });
+// boton para iniciar la funcion capturar
+
+let btn = document.getElementById("boton")
+btn.addEventListener("click", capturar);
+
+
+// Constructor de obj de turno
 
 function capturar(){
 
@@ -57,9 +36,6 @@ function capturar(){
     let nombreObj = document.getElementById("nombre").value;
     let apellidoObj = document.getElementById("apellido").value;
     let edadObj = document.getElementById("edad").value;
-
-    // NOSE COMO HACER PARA QUE ME TOME EL VALOR DEL DIA ME APARECE SOLO EL DIA NO EL MES NI AÑO.. (SE QUE DEBE SER UNA TONTERA PERO ESTOY HACE DIAS CON ESO JAJAJ)
-    
     let diaObj = document.getElementById("edad").value;
     let horaObj = document.getElementById("hora").value;
     
@@ -68,104 +44,63 @@ function capturar(){
     turnoObj = new Turno(nombreObj,apellidoObj,edadObj,diaObj,horaObj);
     console.log(turnoObj)
     
+    
+    turnosGral.push(turnoObj)
+    console.log(turnosGral)
+    
+    const turnosJson = JSON.stringify(turnosGral)
+    localStorage.setItem("algo", turnosJson)
+    
     cargaTurno ();
+};
 
-}
 
-// Donde se alojaran todos los turnos creados
+// funcion que muestra el turno generado
 
-const turnosGral = [];
+function cargaTurno(){
 
- function cargaTurno(){
-   turnosGral.push(turnoObj);
-   console.log(turnosGral);
-
-   turnoGenerado.innerHTML += `<div><p> Gracias el turno se genero correctamente ${turnoObj.nombre} !!!</p></div>`
+  turnoGenerado.innerHTML += `<div><div><p> Gracias el turno se genero correctamente ${turnoObj.nombre} !!!</p></div><br><div><button id="boton-eliminar" type="reset" onclick="capturar();">Agendar Turno!</button></div>`
    
-   
-   const turnosJson = JSON.stringify(turnosGral)
-   localStorage.setItem("turnosGral", turnosJson)
- }
+};
 
 
+// filtro de busqueda
 
-// function CargaDeDatos (nombre,apellido,edad,dia,hora){
+const input = document.getElementById("buscar")
+let mostrarBusqueda = document.getElementById("mostrarBusqueda")
 
-//     let nombre = document.getElementById("nombre").value;
+input.addEventListener("input", (event) => {
+  const valor = event.target.value
+  const resultado = turnosGral.filter(p => p.nombre.includes(valor))
+  if(resultado.length > 0){
+    mostrarTurnos(resultado)
+  }
+  console.log(resultado)
+});
 
-//     this.nombre = nombre.value;
-//     this.apellido = apellido.value;
-//     this.edad = edad.value;
-//     this.dia = dia.value;
-//     this.hora = hora.value;
-    
-//     const personaturno = new CargaDeDatos ( nombre , apellido, edad, dia, hora);
-//     turnos.push(personaturno);
-// }
+// Función que muestra el turno buscado
 
+function mostrarTurnos(resultados) {
+  // Obtenemos el elemento donde insertaremos la tabla
 
+  // Creamos una variable para almacenar la tabla
+  let tabla = '';
 
-//     let nombreDatos = document.getElementById("nombre").value;
+  // Si hay resultados, creamos la tabla
+  if (resultados.length > 0) {
+    resultados.forEach(p => {
+      tabla += `
+        <tr>
+          <td>${p.nombre}</td>
+          <td>${p.apellido}</td>
+          <td>${p.edad}</td>
+          <td>${p.dia}</td>
+          <td>${p.hora}</td>
+        </tr>
+      `;
+    });
+  }
 
-//     let turno = CargaDeDatos(nombreDatos);
-
-//     console.log(turno)
-// }
-
-
-
-// carga los datos al array
-
-
-// console.log(CargaDeDatos)
-
-
-
-
-//  if (preguntaBase === true) {
-
-//     console.log("entro el turno")
-//     cantidadTurnos = prompt("¿Cuantos turnos te gustaria generar?");
-
-//     do {
-        
-
-//         let nombre = prompt ("Ingrese su nombre");
-//         let apellido = prompt ("Ingrese su apellido");
-//         let edad = prompt ("Ingrese su edad");
-//         let dia = prompt ("¿Que dia te gustaria el turno?");
-//         let hora = prompt ("¿Que horario te gustaria?");
-    
-        
-
-
-//         cierre++;
-        
-//     } while (cantidadTurnos != cierre);
-
-
-//   } else (preguntaBase === false){
-//     console.log("a tu mama")
-//     alert("NO SE PUDO GENERAR EL TURNO CORRECTAMENTE!")    
-//   }
-
-// console.log(turnos);
-
-// let pregunta = prompt("Te gustaria saber si se guardo el turno? si / no");
-// let buscado = prompt ("a nombre de quien se guardo el turno?");
-
-// if (pregunta == "si" ) {
-    
-//     let resultado = turnos.filter((elemento) => elemento.nombre === buscado);   
-
-//     //Deja ver a nombre de quien se guardo el turno 
-
-//    mostrar (resultado);
-// }
-
-
-// //funcion imple para no poner cada dos seg console.log
-
-// function mostrar (variable){
-//     console.log(variable);
-// };
+    // Insertamos la tabla en el elemento container
+    tablaContainer.innerHTML = tabla;
+  }
